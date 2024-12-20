@@ -45,7 +45,7 @@ export class StreamReader<T> {
         this.connection.addEventListener('error', err => {
             this.EE.emit('error', err)
             this.connection?.close()
-            setTimeout(this.connectWebsocket, this.config.retryInterval)
+            setTimeout(() => this.connectWebsocket(), this.config.retryInterval)
         })
     }
 
